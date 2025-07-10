@@ -7,6 +7,20 @@
   font-size: 1rem;
 }
 
+.feed-wrapper .error-box{
+   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+
+}
+.feed-wrapper .error-msg{
+
+  font-family: "Poppins";
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
 .video-wrapper {
   position: relative;
   width: fit-content;
