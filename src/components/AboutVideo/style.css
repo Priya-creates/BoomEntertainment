@@ -1,7 +1,7 @@
 .aboutvideo-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   padding: 2.5rem;
   gap: 2.5rem;
   align-items: center;
@@ -13,7 +13,7 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   margin: 2rem auto 6rem auto;
   margin-top: 0rem;
-  min-height: 60vh;
+  min-height: 50vh;
 }
 
 .aboutvideo-wrapper .heading {
