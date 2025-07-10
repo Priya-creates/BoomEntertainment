@@ -77,7 +77,6 @@ export default function VideoList() {
         behavior: "smooth",
         block: "center",
       });
-
       const videoEl = videoRefs.current[videoId]?.querySelector("video");
       if (videoEl) videoEl.play();
     } else {
@@ -88,8 +87,7 @@ export default function VideoList() {
 
   function knowDetails(videoId) {
     navigate(`/video/details/${videoId}`);
-    setTimeout(() => window.scrollTo(0, 0), 100); 
-    
+    setTimeout(() => window.scrollTo(0, 0), 100);
   }
 
   return (
@@ -118,12 +116,15 @@ export default function VideoList() {
             ref={(el) => (videoRefs.current[video._id] = el)}
           >
             <h2 className="video-title">{video.title}</h2>
-            {video.type === "short" && console.log(video.filePath)}
 
             <div className="video-wrapper">
               {video.type === "short" ? (
                 <video className="video-element" controls>
-                  <source src={`${video.filePath}`} type="video/mp4" />
+                  <source
+                    src={`${axios.defaults.baseURL}${video.filePath}`}
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
                 </video>
               ) : (
                 <iframe
@@ -131,7 +132,7 @@ export default function VideoList() {
                   src={convertToEmbedUrl(video.url)}
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                ></iframe>
+                />
               )}
 
               {!isUnlocked && !isCreatorVideo && (
@@ -186,3 +187,4 @@ export default function VideoList() {
     </div>
   );
 }
+
