@@ -1,0 +1,87 @@
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 24px 70px; 
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.intro-content {
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+  color: #f5f5f5;
+  margin-top: 52vh;
+}
+
+
+.intro-content h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.6rem, 3vw, 1.85rem);
+  margin-bottom: 18px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.12);
+}
+
+
+.intro-content p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  font-family: "Poppins";
+  margin-bottom: 20px;
+}
+
+
+.intro-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 45px;
+  flex-wrap: wrap;
+  font-family: "Poppins";
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.intro-btn {
+  padding: 12px 28px;
+  border: 1px solid #dce4b0;
+  border-radius: 8px;
+  background: transparent;
+  color: #dce4b0;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.25s, box-shadow 0.25s;
+}
+
+.intro-btn:hover {
+  background-color: rgba(220, 228, 176, 0.13);
+  box-shadow: 0 0 12px #dce4b0;
+  scale: 1.1;
+}
+
+@media (max-width: 550px) {
+  .intro-content p {
+    font-size: 0.9rem;
+  }
+
+  .intro-content h1 {
+    font-size: 1.6rem;
+  }
+  .intro-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    margin-top: 1.8rem;
+  }
+  .intro-content{
+    margin-top: 53vh;
+  }
+
+  .intro-btn {
+    padding: 10px 15px;
+    
+  }
+}

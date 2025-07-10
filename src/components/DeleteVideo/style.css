@@ -1,0 +1,96 @@
+.delete-video-wrapper {
+  font-family: "Poppins";
+  width: 55%;
+  min-height: 200px;
+  background-color: transparent;
+  backdrop-filter: 40px;
+  box-shadow: 3px 3px 20px 2px rgba(0, 0, 0, 0.31);
+  border-radius: 5px;
+  padding: 1.8rem 1.5rem;
+  margin: 0 auto;
+  margin-bottom: 2.5rem;
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-video-wrapper .inner-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  background-color: transparent;
+}
+
+.delete-video-wrapper .inner-container .question {
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.delete-video-wrapper .inner-container .button-set {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.delete-video-wrapper .inner-container .button-set button {
+  width: fit-content;
+  min-width: 120px;
+  border: 0;
+  padding: 0.7rem 1.4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  border-radius: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.delete-video-wrapper .inner-container .button-set button:hover {
+  background-color: black;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.delete-video-wrapper .inner-container .button-set button:last-child:hover {
+  background-color: rgb(122, 120, 120);
+}
+
+@media (max-width: 1090px){
+  .delete-video-wrapper{
+    width: 70%;
+    padding: 1rem;
+  }
+
+}
+
+@media (max-width:785px){
+  .delete-video-wrapper{
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .delete-video-wrapper .inner-container{
+    gap: 2.5rem;
+  }
+
+  .delete-video-wrapper .inner-container .question{
+    font-size: 1rem;
+  }
+
+  .delete-video-wrapper .inner-container .button-set{
+    gap: 2.5rem;
+  }
+  .delete-video-wrapper .inner-container .button-set button{
+    padding: 10px ;
+    font-size: 1rem;
+    min-width: 80px;
+
+
+  }
+}

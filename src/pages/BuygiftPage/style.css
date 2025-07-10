@@ -1,0 +1,196 @@
+.buygift-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.buygift-wrapper .buygift-box {
+  background: linear-gradient(135deg, #3b3753, #1f1f30);
+  backdrop-filter: blur(6px);
+  padding: 2rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 90%;
+  padding-bottom: 3rem;
+}
+
+
+.buygift-wrapper .about-video-container {
+  width: 100%;
+}
+.buygift-wrapper .about-video-container .aboutvideo-wrapper {
+  width: 100% !important;
+  max-width: none !important;
+  margin-bottom: 2.5rem !important;
+}
+
+
+.buygift-wrapper .divider {
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin: 1rem 0 !important;
+}
+
+.buygift-wrapper .section h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  text-align: left;
+  color: #f6f6f6;
+}
+
+.buygift-wrapper button {
+  font-family: "Poppins", sans-serif;
+  padding: 0.8rem 0.8rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #44494f;
+  color: white;
+  transition: background 0.3s;
+}
+
+.buygift-wrapper button:hover:not(:disabled) {
+  background-color: #343a40;
+}
+.buygift-wrapper button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.buygift-wrapper .inline-confirm {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-top: 1rem;
+  border-left: 4px solid #36666e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  width: 70%;
+}
+
+.buygift-wrapper .inline-confirm p {
+  margin-bottom: 0.75rem;
+  font-family: "Poppins", sans-serif;
+  color: #f1f1f1;
+  font-weight: 500;
+}
+
+.buygift-wrapper .inline-confirm input {
+  width: 100px;
+  padding: 0.3rem 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: "Poppins", sans-serif;
+}
+
+.buygift-wrapper .inline-buttons {
+  
+  display: flex;
+  justify-content: space-between;
+}
+
+.buygift-wrapper .inline-buttons button {
+  padding-inline: 1rem;
+  padding-block: 0.6rem;
+  background-color: #555b61;
+  transition: background 0.3s;
+}
+
+.buygift-wrapper .inline-buttons button:hover:not(:disabled) {
+  background-color: #36666e;
+  color: #ffffff;
+}
+
+.buygift-wrapper .message-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(2px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.buygift-wrapper .message-box {
+  font-family: "Poppins", sans-serif;
+  max-width: 420px;
+  width: 90%;
+  background: #000;
+  border-radius: 12px;
+  padding: 2.5rem 1.8rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  animation: fadeSlideUp 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.message-overlay .message-box .alert {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  line-height: 1;
+  text-align: center;
+}
+.buygift-wrapper .alert.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+.buygift-wrapper .alert.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+.message-overlay .message-box .ok-btn {
+  margin-top: 1.2rem;
+  padding: 8px 13px;
+  border: none;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: #333;
+  color: white;
+  transition: all 0.5s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.message-overlay .message-box .ok-btn:hover {
+  background-color: #9f9d9d;
+  color: #333;
+  transform: scale(1.05);
+}
+
+.remaining-balance {
+  color: #155724;
+  font-weight: 600;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .buygift-wrapper .buygift-box {
+    padding: 1.5rem;
+    width: 85%;
+  }
+  .message-overlay .message-box {
+    width: 75%;
+  }
+}

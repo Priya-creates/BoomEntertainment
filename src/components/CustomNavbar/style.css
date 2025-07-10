@@ -1,0 +1,32 @@
+.customnavbar-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3); 
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(6px);
+  padding: 1.1rem 1.5rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.customnavbar-wrapper .inner-flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white !important;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.customnavbar-wrapper .back-logo{
+    font-weight: 900;
+}
+.customnavbar-wrapper .inner-flex:hover {
+  color: #c3aaf4 !important;
+  transform: translateY(-1.5px);
+  
+}
+

@@ -1,0 +1,92 @@
+.aboutvideo-wrapper {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem;
+  gap: 2.5rem;
+  align-items: center;
+  width: 40%;
+  max-width: 550px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.79);
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  margin: 2rem auto 6rem auto;
+  margin-top: 0rem;
+
+}
+
+.aboutvideo-wrapper .heading {
+  color: rgb(0, 0, 0);
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.outer-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #293047d3;
+  padding: 1.7rem;
+  border-radius: 10px;
+  box-shadow: 5px 12px 10px rgba(0, 0, 0, 0.2);
+
+  
+}
+
+.aboutvideo-wrapper .prop {
+  display: flex;
+  color: white;
+  font-family: "Poppins";
+  font-size: 0.95rem;
+
+  width: 100%;
+}
+.aboutvideo-wrapper .prop-key {
+  width: 35%;
+  
+  font-weight: 600;
+}
+.aboutvideo-wrapper .prop-value {
+  width: 65%;
+  
+}
+
+@media screen and (max-width: 1100px) and (min-width: 699px) {
+    .aboutvideo-wrapper{
+        width: 75%;
+        padding: 1.5rem;
+    }
+    .aboutvideo-wrapper .heading{
+        font-size: 1.7rem;
+    }
+    
+}
+
+@media screen and (max-width: 700px) {
+  .aboutvideo-wrapper {
+    width: 85%;
+    padding: 1.5rem;
+  }
+
+  .outer-container {
+    padding: 1rem;
+  }
+
+
+  .prop-key,
+  .prop-value {
+    font-size: 0.9rem;
+  }
+  .aboutvideo-wrapper .heading{
+        font-size: 1.4rem;
+    }
+    
+}
+
+.aboutvideo-wrapper .prop:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+}

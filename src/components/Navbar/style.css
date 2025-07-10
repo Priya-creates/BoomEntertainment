@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-family: "Poppins";
+  font-size: 0.88rem;
+  z-index: 999;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(16, 16, 16, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  
+ 
+}
+
+.nav-logo,
+.nav-account {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: white;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+  transform: scale(1.05);
+  color: #f1f1f1;
+}
+
+.menu-btn {
+  background-color: transparent;
+  border: 0;
+}
+
+.icon-style {
+  background-color: transparent !important;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.outer-box {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 35%; 
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3);
+
+  transform: translateX(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+
+.outer-box.open {
+  transform: translateX(0);
+}
+
+
+.navbar-ms {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 1rem;
+  font-family: "Poppins";
+}
+
+.cross-box {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: transparent;
+  padding-top: 1.2rem;
+  border: 0;
+}
+
+@media screen and (max-width: 750px) {
+  .outer-box {
+    width: 70%;
+  }
+}
+
+.nav-active {
+  border: none;
+  text-decoration: none;
+  color: #7646d7;
+  font-weight: 600;
+}

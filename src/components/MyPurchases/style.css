@@ -1,0 +1,226 @@
+.mypurchases-wrapper {
+  background-color: rgba(255, 255, 255, 0.783);
+  width: 70%;
+  margin: 3rem auto;
+  border-radius: 15px;
+  padding: 2rem;
+  font-family: "Poppins", sans-serif;
+}
+.error-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+.error-msg {
+  font-family: "Poppins";
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.mypurchases-wrapper .video-card {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.mypurchases-wrapper .heading {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  text-align: left;
+  color: #000000;
+}
+
+.mypurchases-wrapper .video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.mypurchases-wrapper .video-container video,
+.mypurchases-wrapper .video-container iframe {
+  border-radius: 10px;
+  width: 100%;
+  max-width: 520px;
+  height: 290px;
+}
+
+.mypurchases-wrapper .details-box .small-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #447274;
+  padding: 8px 0;
+}
+
+.mypurchases-wrapper .details {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  gap: 6px;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-bottom: 1.3rem;
+  min-width: 250px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.mypurchases-wrapper .prop {
+  width: 100%;
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.mypurchases-wrapper .prop-key {
+  width: 35%;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.mypurchases-wrapper .prop-value {
+  width: 65%;
+  word-break: break-word;
+}
+
+.mypurchases-wrapper .deleted-note {
+  font-size: 14px;
+  color: rgb(104, 40, 40);
+  font-weight: 500;
+  padding-top: 5px;
+}
+
+@media (max-width: 1440px) {
+  .mypurchases-wrapper .details {
+    width: 48%;
+  }
+}
+
+@media (max-width: 1210px) {
+  .mypurchases-wrapper {
+    width: 90%;
+    padding: 1.6rem;
+  }
+
+  .mypurchases-wrapper .video-container iframe,
+  .mypurchases-wrapper .video-container video {
+    height: 250px;
+  }
+
+  .mypurchases-wrapper .details {
+    width: 55%;
+  }
+
+  .mypurchases-wrapper .details-box .small-heading {
+    font-size: 1.1rem;
+  }
+
+  .mypurchases-wrapper .heading {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 990px) {
+  .mypurchases-wrapper .details {
+    width: 65%;
+  }
+
+  .mypurchases-wrapper .video-container iframe,
+  .mypurchases-wrapper .video-container video {
+    height: 230px;
+  }
+
+  .mypurchases-wrapper {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 800px) and (min-width: 660px) {
+  .mypurchases-wrapper {
+    padding: 1rem;
+  }
+
+  .mypurchases-wrapper .video-container iframe,
+  .mypurchases-wrapper .video-container video {
+    height: 200px;
+  }
+
+  .mypurchases-wrapper .details-box {
+    width: 55%;
+  }
+
+  .mypurchases-wrapper .details {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .mypurchases-wrapper .details-box .small-heading {
+    font-size: 1rem;
+  }
+
+  .mypurchases-wrapper .heading {
+    font-size: 1.1rem;
+  }
+
+  .mypurchases-wrapper .prop-key,
+  .mypurchases-wrapper .prop-value {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 660px) and (min-width: 566px) {
+  .mypurchases-wrapper .details-box {
+    width: 65%;
+  }
+
+  .mypurchases-wrapper .details {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 565px) {
+  .mypurchases-wrapper .video-card {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .mypurchases-wrapper .details-box {
+    width: 100%;
+  }
+
+  .mypurchases-wrapper .details {
+    width: 100%;
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .mypurchases-wrapper .video-container iframe,
+  .mypurchases-wrapper .video-container video {
+    height: 180px;
+  }
+
+  .mypurchases-wrapper {
+    padding: 0.8rem;
+  }
+
+  .mypurchases-wrapper .deleted-note {
+    font-size: 13px;
+  }
+
+  .mypurchases-wrapper .prop {
+    flex-wrap: wrap;
+  }
+
+  .mypurchases-wrapper .prop-key,
+  .mypurchases-wrapper .prop-value {
+    width: 50%;
+    font-size: 13px;
+  }
+}
