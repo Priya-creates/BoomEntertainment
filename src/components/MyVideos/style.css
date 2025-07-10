@@ -1,3 +1,4 @@
+
 .myvideos-wrapper {
   background-color: rgba(255, 255, 255, 0.783);
   width: 80%;
@@ -6,21 +7,25 @@
   padding: 2rem;
   font-family: "Poppins";
   padding-bottom: 1rem;
-  min-height: 50vh !important;
+  min-height: 75vh !important;
+  
 }
-.myvideos-wrapper .error-box {
+.myvideos-wrapper .error-box{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 300px;
+
 }
 
-.myvideos-wrapper .error-msg {
+.myvideos-wrapper .error-msg{
   font-family: "Poppins";
   text-align: center;
   font-size: 1.2rem;
   font-weight: 500;
+
 }
+
 
 .video-card {
   margin-bottom: 0.3rem;
@@ -51,6 +56,7 @@
   height: 290px;
 }
 
+
 .details-box .small-heading {
   font-size: 1.2rem;
   font-weight: 700;
@@ -78,6 +84,8 @@
   align-items: center;
 }
 
+
+
 .details-box .prop .prop-key {
   width: 30%;
   font-weight: 500;
@@ -86,6 +94,7 @@
 .details-box .prop .prop-value {
   width: 60%;
 }
+
 
 .edit-delete-buttonset {
   display: flex;
@@ -122,28 +131,32 @@
   cursor: not-allowed;
 }
 
+
 @media (max-width: 1035px) {
   .myvideos-wrapper .details-box .details {
     width: 70%;
   }
-  .myvideos-wrapper .video-card {
+  .myvideos-wrapper .video-card{
     padding-bottom: 0;
   }
-  .myvideos-wrapper {
+  .myvideos-wrapper{
     padding-bottom: 0;
   }
+  
+
 }
+
 
 @media (max-width: 768px) {
   .myvideos-wrapper {
     width: 90%;
-    padding: 1rem;
+    padding: 1rem; 
     margin-top: 2rem;
     margin-bottom: 2rem;
   }
 
   .video-container {
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; 
   }
 
   .video-container video,
@@ -166,6 +179,8 @@
     gap: 1rem;
     margin-bottom: 0.8rem;
   }
+
+  
 }
 
 @media (max-width: 551px) {
@@ -193,4 +208,27 @@
     font-size: 0.95rem;
     min-width: 100px;
   }
+  .myvideos-wrapper .details-box .details{
+    gap: 5px;
+  }
+}
+
+.video-frame-wrapper {
+  width: 100%;
+  max-width: 450px;
+  height: 220px;
+  max-height: 250px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-frame-wrapper iframe,
+.video-frame-wrapper video {
+  width: 100%;
+  height: 100%;
+  border: none;
 }

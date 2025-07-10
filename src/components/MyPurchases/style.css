@@ -1,19 +1,21 @@
 .mypurchases-wrapper {
   background-color: rgba(255, 255, 255, 0.783);
-  width: 70%;
+  width: 75%;
   margin: 3rem auto;
   border-radius: 15px;
   padding: 2rem;
   font-family: "Poppins", sans-serif;
+  min-height: 80vh !important;
 }
+
 .mypurchases-wrapper .error-box {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 300px;
 }
+
 .mypurchases-wrapper .error-msg {
-  font-family: "Poppins";
   text-align: center;
   font-size: 1.2rem;
   font-weight: 500;
@@ -40,12 +42,21 @@
   margin-bottom: 1.5rem;
 }
 
-.mypurchases-wrapper .video-container video,
-.mypurchases-wrapper .video-container iframe {
-  border-radius: 10px;
+.mypurchases-wrapper .video-frame-wrapper {
   width: 100%;
-  max-width: 520px;
-  height: 290px;
+  max-width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.video-frame-wrapper iframe,
+.video-frame-wrapper video {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .mypurchases-wrapper .details-box .small-heading {
@@ -96,21 +107,12 @@
   padding-top: 5px;
 }
 
-@media (max-width: 1440px) {
-  .mypurchases-wrapper .details {
-    width: 48%;
-  }
-}
+/* ========== Responsive Width & Video Height ========== */
 
-@media (max-width: 1210px) {
+@media (max-width: 1199px) {
   .mypurchases-wrapper {
-    width: 90%;
+    width: 85%;
     padding: 1.6rem;
-  }
-
-  .mypurchases-wrapper .video-container iframe,
-  .mypurchases-wrapper .video-container video {
-    height: 250px;
   }
 
   .mypurchases-wrapper .details {
@@ -124,40 +126,29 @@
   .mypurchases-wrapper .heading {
     font-size: 1.3rem;
   }
-}
 
-@media (max-width: 990px) {
-  .mypurchases-wrapper .details {
-    width: 65%;
-  }
-
-  .mypurchases-wrapper .video-container iframe,
-  .mypurchases-wrapper .video-container video {
-    height: 230px;
-  }
-
-  .mypurchases-wrapper {
-    padding: 1.2rem;
+  .mypurchases-wrapper .video-frame-wrapper {
+    height: 250px;
   }
 }
 
-@media (max-width: 800px) and (min-width: 660px) {
+@media (max-width: 768px) {
   .mypurchases-wrapper {
+    width: 95%;
     padding: 1rem;
   }
 
-  .mypurchases-wrapper .video-container iframe,
-  .mypurchases-wrapper .video-container video {
+  .mypurchases-wrapper .video-frame-wrapper {
     height: 200px;
-  }
-
-  .mypurchases-wrapper .details-box {
-    width: 55%;
   }
 
   .mypurchases-wrapper .details {
     width: 100%;
     font-size: 14px;
+  }
+
+  .mypurchases-wrapper .details-box {
+    width: 100%;
   }
 
   .mypurchases-wrapper .details-box .small-heading {
@@ -174,40 +165,23 @@
   }
 }
 
-@media (max-width: 660px) and (min-width: 566px) {
-  .mypurchases-wrapper .details-box {
-    width: 65%;
-  }
-
-  .mypurchases-wrapper .details {
-    width: 100%;
-    font-size: 14px;
-  }
-}
-
 @media (max-width: 565px) {
+  .mypurchases-wrapper {
+    padding: 0.8rem;
+  }
+
   .mypurchases-wrapper .video-card {
     margin-bottom: 1rem;
     padding-bottom: 1rem;
   }
 
-  .mypurchases-wrapper .details-box {
-    width: 100%;
-  }
-
   .mypurchases-wrapper .details {
-    width: 100%;
     font-size: 13px;
     padding: 8px;
   }
 
-  .mypurchases-wrapper .video-container iframe,
-  .mypurchases-wrapper .video-container video {
-    height: 180px;
-  }
-
-  .mypurchases-wrapper {
-    padding: 0.8rem;
+  .mypurchases-wrapper .video-frame-wrapper {
+    height: 220px;
   }
 
   .mypurchases-wrapper .deleted-note {

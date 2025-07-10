@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "../../axiosInstance";
 import { FaRegComment } from "react-icons/fa";
 import { BsThreeDotsVertical } from "react-icons/bs";
@@ -11,33 +11,36 @@ export default function CommentSection({
   isSuccess,
   setIsSuccess,
 }) {
-  const [comments, setComments] = React.useState([]);
-  const [showComments, setShowComments] = React.useState(false);
-  const [postComment, setPostComment] = React.useState("");
-  const [loading, setLoading] = React.useState({ post: false, delete: false });
-  const [deleteId, setDeleteId] = React.useState(null);
-  const [openDeleteOption, setOpenDeleteOption] = React.useState(false);
-  const [fetchingComments, setFetchingComments] = React.useState(null);
-  const [deleteConfirmId, setDeleteConfirmId] = React.useState(null);
+  const [comments, setComments] = useState([]);
+  const [showComments, setShowComments] = useState(false);
+  const [postComment, setPostComment] = useState("");
+  const [loading, setLoading] = useState({ post: false, delete: false });
+  const [deleteId, setDeleteId] = useState(null);
+  const [openDeleteOption, setOpenDeleteOption] = useState(false);
+  const [deleteConfirmId, setDeleteConfirmId] = useState(null);
+  const [fetchingComments, setFetchingComments] = useState(null);
+
+  const commentBoxRef = useRef(null);
+  const commentRefs = useRef([]);
 
   const token = localStorage.getItem("token");
   const userId = localStorage.getItem("userId");
 
-  async function fetchComments() {
+  const fetchComments = async () => {
     try {
-      const res = await axios.get(
-        `/api/videos/${videoId}/comments`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      const res = await axios.get(`/api/videos/${videoId}/comments`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setComments(res.data.data);
       setFetchingComments(false);
       setShowComments(true);
+      commentRefs.current = res.data.data.map(() => React.createRef());
     } catch (err) {
       setMessage(err.response?.data?.message || err.message);
     }
-  }
+  };
 
-  async function handleCommentToggle() {
+  const handleCommentToggle = async () => {
     if (!userId) {
       setMessage("Please login to access the comments");
       return;
@@ -48,9 +51,9 @@ export default function CommentSection({
       setFetchingComments(true);
       await fetchComments();
     }
-  }
+  };
 
-  async function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const trimmed = postComment.trim();
     if (!trimmed) {
@@ -60,11 +63,9 @@ export default function CommentSection({
     setLoading((p) => ({ ...p, post: true }));
     try {
       const formData = { user: userId, video: videoId, text: trimmed };
-      const res = await axios.post(
-        `/api/videos/${videoId}/comment`,
-        formData,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      const res = await axios.post(`/api/videos/${videoId}/comment`, formData, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (res.data.status === "success") {
         setIsSuccess(true);
         setMessage("Comment posted successfully");
@@ -80,15 +81,14 @@ export default function CommentSection({
     } finally {
       setLoading((p) => ({ ...p, post: false }));
     }
-  }
+  };
 
-  async function handleDeleteComment(commentId) {
+  const handleDeleteComment = async (commentId) => {
     setLoading((p) => ({ ...p, delete: true }));
     try {
-      const res = await axios.delete(
-        `/api/user/comment/${commentId}`,
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      const res = await axios.delete(`/api/user/comment/${commentId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       setIsSuccess(true);
       setMessage(res.data.message || "Comment deleted successfully");
       await fetchComments();
@@ -99,13 +99,13 @@ export default function CommentSection({
       setDeleteConfirmId(null);
       setLoading((p) => ({ ...p, delete: false }));
     }
-  }
+  };
 
   return (
     <div className="comment-wrapper">
       <div className="view-all-comments-btn" onClick={handleCommentToggle}>
         <FaRegComment size={20} />
-        <span className="vac-text">View all comments</span>
+        <span className="vac-text">View All Comments</span>
       </div>
 
       {fetchingComments && !showComments && (
@@ -113,21 +113,23 @@ export default function CommentSection({
       )}
 
       {showComments && (
-        <div className="comment-box">
+        <div className="comment-box" ref={commentBoxRef}>
           {comments.length > 0 ? (
-            comments.map((c) => (
-              <div className="comment-item" key={c._id}>
+            comments.map((c, index) => (
+              <div
+                className="comment-item"
+                key={c._id}
+                ref={(el) => (commentRefs.current[index] = el)}
+              >
                 <div className="comment-header">
-                  <div className="comment-owner">
-                    {c.user?.name || "Anonymous"}
-                  </div>
+                  <div className="comment-owner">{c.user?.name || "Anonymous"}</div>
                   {userId === c.user._id && (
                     <button
                       className="three-dots-btn"
                       onClick={() => {
                         setOpenDeleteOption((p) => !p);
                         setDeleteId(c._id);
-                        deleteConfirmId && setDeleteConfirmId(null);
+                        setDeleteConfirmId(null);
                       }}
                     >
                       <BsThreeDotsVertical />
@@ -139,7 +141,19 @@ export default function CommentSection({
                 {openDeleteOption && deleteId === c._id && (
                   <button
                     className="comment-delete-btn"
-                    onClick={() => setDeleteConfirmId(c._id)}
+                    onClick={() => {
+                      setDeleteConfirmId(c._id);
+                      if (
+                        commentRefs.current[index] &&
+                        commentBoxRef.current
+                      ) {
+                        const elTop = commentRefs.current[index].offsetTop;
+                        commentBoxRef.current.scrollTo({
+                          top: elTop,
+                          behavior: "smooth",
+                        });
+                      }
+                    }}
                     disabled={loading.delete}
                   >
                     {loading.delete ? "Deleting..." : "Delete Comment"}
@@ -148,7 +162,9 @@ export default function CommentSection({
 
                 {deleteConfirmId === c._id && (
                   <div className="delete-confirm-box">
-                    <p>Are you sure you want to delete this comment?</p>
+                    <p style={{ marginTop: "10px" }}>
+                      Are you sure you want to delete this comment?
+                    </p>
                     <div className="btn-set">
                       <button onClick={() => handleDeleteComment(c._id)}>
                         Yes
@@ -183,6 +199,7 @@ export default function CommentSection({
           />
           <button
             type="submit"
+            className="post-btn"
             disabled={loading.post || postComment.trim().length === 0}
           >
             {loading.post ? "Posting..." : "Post"}

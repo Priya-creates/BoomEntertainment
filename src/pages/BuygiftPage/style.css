@@ -1,30 +1,32 @@
+/* style.css */
 .buygift-wrapper {
   display: flex;
   justify-content: center;
-  margin: 2rem auto;
+  margin: 2rem auto; 
+  min-height: 75vh;
 }
 
 .buygift-wrapper .buygift-box {
   background: linear-gradient(135deg, #3b3753, #1f1f30);
   backdrop-filter: blur(6px);
-  padding: 2rem 2rem;
+  padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   max-width: 600px;
   width: 90%;
   padding-bottom: 3rem;
+  min-height: 700px;
 }
-
 
 .buygift-wrapper .about-video-container {
   width: 100%;
 }
+
 .buygift-wrapper .about-video-container .aboutvideo-wrapper {
   width: 100% !important;
   max-width: none !important;
   margin-bottom: 2.5rem !important;
 }
-
 
 .buygift-wrapper .divider {
   height: 1px;
@@ -42,7 +44,7 @@
 
 .buygift-wrapper button {
   font-family: "Poppins", sans-serif;
-  padding: 0.8rem 0.8rem;
+  padding: 0.8rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -50,11 +52,13 @@
   background-color: #44494f;
   color: white;
   transition: background 0.3s;
+  font-size: 1rem;
 }
 
 .buygift-wrapper button:hover:not(:disabled) {
   background-color: #343a40;
 }
+
 .buygift-wrapper button:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -65,10 +69,20 @@
   backdrop-filter: blur(8px);
   border-radius: 10px;
   padding: 1rem 1.2rem;
-  margin-top: 1rem;
+  margin-top: 1rem !important;
   border-left: 4px solid #36666e;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   width: 70%;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.buygift-wrapper .inline-confirm .confirm-text {
+  text-align: center;
+  font-size: 1rem;
 }
 
 .buygift-wrapper .inline-confirm p {
@@ -88,9 +102,10 @@
 }
 
 .buygift-wrapper .inline-buttons {
-  
+  width: 80%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .buygift-wrapper .inline-buttons button {
@@ -98,6 +113,7 @@
   padding-block: 0.6rem;
   background-color: #555b61;
   transition: background 0.3s;
+  font-size: 1rem;
 }
 
 .buygift-wrapper .inline-buttons button:hover:not(:disabled) {
@@ -115,6 +131,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .buygift-wrapper .message-box {
   font-family: "Poppins", sans-serif;
   max-width: 420px;
@@ -128,6 +145,7 @@
   flex-direction: column;
   align-items: center;
 }
+
 .message-overlay .message-box .alert {
   display: flex;
   flex-direction: column;
@@ -139,16 +157,19 @@
   line-height: 1;
   text-align: center;
 }
+
 .buygift-wrapper .alert.success {
   background-color: #d4edda;
   color: #155724;
   border: 1px solid #c3e6cb;
 }
+
 .buygift-wrapper .alert.error {
   background-color: #f8d7da;
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
+
 .message-overlay .message-box .ok-btn {
   margin-top: 1.2rem;
   padding: 8px 13px;
@@ -162,6 +183,7 @@
   transition: all 0.5s;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
 .message-overlay .message-box .ok-btn:hover {
   background-color: #9f9d9d;
   color: #333;
@@ -184,13 +206,69 @@
   }
 }
 
+@media screen and (max-width: 1100px) {
+  .buygift-wrapper .section h2 {
+    font-size: 1.3rem;
+  }
+  .buygift-wrapper button {
+    font-size: 1rem;
+  }
+}
 
-@media screen and (max-width: 600px) {
-  .buygift-wrapper .buygift-box {
-    padding: 1.5rem;
-    width: 85%;
+@media screen and (max-width: 800px) {
+  .buygift-wrapper {
+    padding: 0 1rem;
   }
-  .message-overlay .message-box {
+  .buygift-wrapper .section h2 {
+    font-size: 1.15rem;
+  }
+  .buygift-wrapper button {
+    font-size: 0.9rem;
+  }
+  .buygift-wrapper .inline-confirm {
     width: 75%;
+    margin: auto;
   }
+  .buygift-wrapper .inline-confirm .confirm-text {
+    font-size: 0.9rem;
+  }
+
+  .buygift-wrapper .inline-buttons button {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .buygift-wrapper{
+    width: 100%;
+  }
+  .buygift-wrapper .section h2 {
+    font-size: 1rem;
+  }
+  .buygift-wrapper button {
+    font-size: 0.8rem;
+  }
+  .buygift-wrapper .inline-confirm {
+    width: 100%;
+  }
+  .buygift-wrapper .buygift-box {
+    padding-block: 1.7rem;
+    padding-inline: 1.2rem;
+  }
+  .buygift-wrapper .inline-confirm .confirm-text {
+    font-size: 0.9rem;
+  }
+
+  .buygift-wrapper .inline-buttons button {
+    font-size: 0.8rem;
+  }
+
+  .buygift-wrapper .inline-confirm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    padding-block: 1.2rem;
+  }
+  
 }

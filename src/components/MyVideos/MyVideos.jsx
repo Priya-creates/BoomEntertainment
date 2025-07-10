@@ -90,31 +90,41 @@ const MyVideos = () => {
     return false;
   }
 
+  const getFullPath = (filePath) => {
+    if (filePath?.startsWith("http")) return filePath;
+    return `${"https://boomentertainment-backend.onrender.com"}${filePath}`;
+  };
+
   return (
     <div className="myvideos-wrapper">
-      {videos.length === 0 && <p className="error-box">
-        <div className="error-msg">No videos have been uploaded</div>
-        </p>}
+      {videos.length === 0 && (
+        <p className="error-box">
+          <div className="error-msg">No videos have been uploaded</div>
+        </p>
+      )}
 
       {videos.map((video) => (
         <React.Fragment key={video._id}>
           <div className="video-card">
             <div className="video-container">
               <h3 className="heading">{video.title}</h3>
-              {video.type === "short" ? (
-                <video controls>
-                  <source
-                    src={`${video.filePath}`}
-                    type="video/mp4"
+              <div className="video-frame-wrapper">
+                {video.type === "short" ? (
+                  <video controls>
+                    <source
+                      src={getFullPath(video.filePath)}
+                      type="video/mp4"
+                    />
+                  </video>
+                ) : (
+                  <iframe
+                    src={convertToEmbedUrl(video.url)}
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
                   />
-                </video>
-              ) : (
-                <iframe
-                  src={convertToEmbedUrl(video.url)}
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                />
-              )}
+                )}
+              </div>
             </div>
 
             <div className="details-box">
@@ -134,9 +144,7 @@ const MyVideos = () => {
                 </div>
                 <div className="prop">
                   <div className="prop-key">Description</div>
-                  <div className="prop-value">
-                    {video.description ? video.description : "-"}
-                  </div>
+                  <div className="prop-value">{video.description || "-"}</div>
                 </div>
                 <div className="prop">
                   <div className="prop-key">Price</div>

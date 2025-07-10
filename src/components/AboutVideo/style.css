@@ -1,5 +1,4 @@
 .aboutvideo-wrapper {
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +13,7 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   margin: 2rem auto 6rem auto;
   margin-top: 0rem;
-
+  min-height: 60vh;
 }
 
 .aboutvideo-wrapper .heading {
@@ -23,6 +22,7 @@
   font-weight: 700;
   font-size: 1.6rem;
 }
+
 .outer-container {
   width: 100%;
   display: flex;
@@ -32,61 +32,84 @@
   padding: 1.7rem;
   border-radius: 10px;
   box-shadow: 5px 12px 10px rgba(0, 0, 0, 0.2);
-
-  
 }
 
 .aboutvideo-wrapper .prop {
   display: flex;
   color: white;
   font-family: "Poppins";
-  font-size: 0.95rem;
-
+  font-size: 1rem;
   width: 100%;
 }
+
 .aboutvideo-wrapper .prop-key {
   width: 35%;
-  
   font-weight: 600;
 }
+
 .aboutvideo-wrapper .prop-value {
   width: 65%;
-  
 }
 
-@media screen and (max-width: 1100px) and (min-width: 699px) {
-    .aboutvideo-wrapper{
-        width: 75%;
-        padding: 1.5rem;
-    }
-    .aboutvideo-wrapper .heading{
-        font-size: 1.7rem;
-    }
-    
+/* 🔹 Bottom border */
+.aboutvideo-wrapper .prop:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
 }
 
-@media screen and (max-width: 700px) {
+/* ✅ 1100px max-width adjustments */
+@media screen and (max-width: 1100px) {
+  .aboutvideo-wrapper {
+    width: 75%;
+    padding: 2rem;
+  }
+
+  .aboutvideo-wrapper .heading {
+    font-size: 1.6rem;
+  }
+
+  .aboutvideo-wrapper .prop {
+    font-size: 1rem;
+  }
+}
+
+/* ✅ 700px–800px range adjustments */
+@media screen and (max-width: 800px) {
   .aboutvideo-wrapper {
     width: 85%;
     padding: 1.5rem;
   }
 
   .outer-container {
+    padding: 1.2rem;
+  }
+
+  .aboutvideo-wrapper .prop {
+    font-size: 0.9rem;
+  }
+
+  .aboutvideo-wrapper .heading {
+    font-size: 1.4rem;
+  }
+}
+
+/* ✅ Below 550px — mobile responsiveness */
+@media screen and (max-width: 550px) {
+  .aboutvideo-wrapper {
+    width: 90%;
     padding: 1rem;
   }
 
-
-  .prop-key,
-  .prop-value {
-    font-size: 0.9rem;
+  .outer-container {
+    padding: 0.9rem;
   }
-  .aboutvideo-wrapper .heading{
-        font-size: 1.4rem;
-    }
-    
-}
 
-.aboutvideo-wrapper .prop:not(:last-child) {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding-bottom: 8px;
+  .aboutvideo-wrapper .prop {
+    font-size: 0.8rem;
+  }
+
+  .aboutvideo-wrapper .heading {
+    font-size: 1.25rem;
+    text-align: center;
+  }
 }

@@ -62,6 +62,14 @@ const MyPurchases = () => {
     return date.toLocaleString("en-US", options);
   }
 
+  const getFullPath = (filePath) => {
+    if (filePath?.startsWith("http")) return filePath;
+    return `${
+      import.meta.env.VITE_BACKEND_BASE_URL ||
+      "https://boomentertainment-backend.onrender.com"
+    }${filePath}`;
+  };
+
   return (
     <div className="mypurchases-wrapper">
       {purchases.length === 0 && (
@@ -74,17 +82,23 @@ const MyPurchases = () => {
         <div className="video-card" key={purchase._id}>
           <div className="video-container">
             <h3 className="heading">{purchase.video.title}</h3>
-            {purchase.video.type === "short" ? (
-              <video controls>
-                <source src={`${purchase.video.filePath}`} type="video/mp4" />
-              </video>
-            ) : (
-              <iframe
-                src={convertToEmbedUrl(purchase.video.url)}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              ></iframe>
-            )}
+            <div className="video-frame-wrapper">
+              {purchase.video.type === "short" ? (
+                <video controls>
+                  <source
+                    src={getFullPath(purchase.video.filePath)}
+                    type="video/mp4"
+                  />
+                </video>
+              ) : (
+                <iframe
+                  src={convertToEmbedUrl(purchase.video.url)}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              )}
+            </div>
           </div>
 
           <div className="details-box">

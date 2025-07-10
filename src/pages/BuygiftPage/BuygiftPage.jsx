@@ -34,7 +34,6 @@ const BuygiftPage = () => {
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
-
       setOverlay((o) => ({
         ...o,
         buy: { show: true, message: res.data.message, error: false },
@@ -75,14 +74,12 @@ const BuygiftPage = () => {
         { amount: amt },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-
       setOverlay((o) => ({
         ...o,
         gift: { show: true, message: res.data.message, error: false },
       }));
       await fetchDetails();
     } catch (err) {
-      console.log(err);
       setOverlay((o) => ({
         ...o,
         gift: {
@@ -121,7 +118,7 @@ const BuygiftPage = () => {
             </button>
             {confirm.purchase && (
               <div className="inline-confirm">
-                <p>Are you sure you want to buy this video?</p>
+                <p className="confirm-text">Are you sure you want to buy this video?</p>
                 <div className="inline-buttons">
                   <button onClick={handlePurchase} disabled={loading.buy}>
                     {loading.buy ? "Processing..." : "Yes"}
@@ -151,7 +148,7 @@ const BuygiftPage = () => {
             </button>
             {confirm.gift && (
               <div className="inline-confirm">
-                <p>Enter gift amount (₹):</p>
+                <p className="confirm-text">Enter gift amount (₹):</p>
                 <input
                   type="number"
                   value={giftAmount}
