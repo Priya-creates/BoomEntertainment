@@ -6,13 +6,13 @@
 .register-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   padding: 2.5rem;
   gap: 3rem;
   align-items: center;
   width: 85%;
   max-width: 500px;
-  min-height: 75vh !important;
+  min-height: 65vh !important;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.76);
   overflow: hidden;
@@ -219,7 +219,6 @@ form {
   transform: scale(1.05);
 }
 
-
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
@@ -228,7 +227,6 @@ form {
     opacity: 1;
   }
 }
-
 
 @media screen and (max-width: 600px) {
   .login-container {

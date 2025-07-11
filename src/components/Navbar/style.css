@@ -46,6 +46,7 @@
   cursor: pointer;
   font-weight: 500;
   transition: all 0.3s ease;
+  padding-inline: 4px;
 }
 
 .nav-item:hover {

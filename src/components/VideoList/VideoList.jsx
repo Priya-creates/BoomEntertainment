@@ -121,7 +121,7 @@ export default function VideoList() {
               {video.type === "short" ? (
                 <video className="video-element" controls>
                   <source
-                    src={`${axios.defaults.baseURL}${video.filePath}`}
+                    src={video.filePath} 
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -187,4 +187,3 @@ export default function VideoList() {
     </div>
   );
 }
-

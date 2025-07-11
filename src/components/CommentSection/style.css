@@ -160,11 +160,11 @@
 
 /* ✅ Delete Confirmation Box (Inside comment box, not fullscreen) */
 .delete-confirm-box {
-  margin-top: 12px;
-  background: white;
+ 
+  background: transparent;
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  
   width: 100%;
   max-width: 320px;
   text-align: center;
