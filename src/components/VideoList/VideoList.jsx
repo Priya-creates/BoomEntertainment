@@ -30,6 +30,12 @@ export default function VideoList() {
     }
 
     async function fetchPurchases() {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        setPurchasedVideos([]); 
+        return;
+      }
+
       try {
         const res = await axios.get("/api/user/my-purchases", {
           headers: { Authorization: `Bearer ${token}` },
@@ -37,7 +43,11 @@ export default function VideoList() {
         const arr = res.data.data.map((ele) => ele.video._id);
         setPurchasedVideos(arr);
       } catch (err) {
-        setErrorMsg("Failed to fetch your purchased videos.");
+        if (err.response?.status !== 404) {
+          console.log("⚠️ Purchase fetch error:", err.message);
+          // Don't set errorMsg here — this is internal
+        }
+        setPurchasedVideos([]);
       }
     }
 
@@ -120,10 +130,7 @@ export default function VideoList() {
             <div className="video-wrapper">
               {video.type === "short" ? (
                 <video className="video-element" controls>
-                  <source
-                    src={video.filePath} 
-                    type="video/mp4"
-                  />
+                  <source src={video.filePath} type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               ) : (
