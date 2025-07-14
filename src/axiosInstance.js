@@ -4,7 +4,7 @@ const instance = axios.create({
   baseURL:
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000" 
-      : "https://boomentertainment-backend.onrender.com",
+      : "https://refreshing-communication-production.up.railway.app/",
   withCredentials: true,
 });
 
